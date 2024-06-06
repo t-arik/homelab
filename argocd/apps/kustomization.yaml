@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: argocd
 resources:
   - guestbook.yaml
+  - cert-manager.yaml
