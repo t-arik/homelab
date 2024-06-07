@@ -5,14 +5,13 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/hostname: grafana.rikb.de
 spec:
   tls:
   - hosts:
-    - grafana.rikb.de
+    - monitoring.rikb.de
     secretName: tls-secret
   rules:
-  - host: grafana.rikb.de
+  - host: monitoring.rikb.de
     http:
       paths:
       - path: /
