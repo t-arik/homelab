@@ -4,3 +4,4 @@ namespace: argocd
 resources:
   - guestbook.yaml
   - cert-manager.yaml
+  - ingress-nginx.yaml
