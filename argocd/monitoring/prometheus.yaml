@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: prometheus
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 25.21.0
+    helm:
+      valuesObject:
+        global:
+          scrape_interval: 15s
+        prometheus.yml:
+          scrape_configs:
+            # - job_name: job
+            #   static_configs:
+            #     - targets:
+            #       - target:9090
+  destination:
+    namespace: monitoring
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+    - CreateNamespace=true
