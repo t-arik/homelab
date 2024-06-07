@@ -6,12 +6,23 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/hostname: argocd.rikb.de
 spec:
   tls:
   - hosts:
     - rikb.de
     secretName: tls-secret
   rules:
+  - host: argocd.rikb.de
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 443
   - host: rikb.de
     http:
       paths:
