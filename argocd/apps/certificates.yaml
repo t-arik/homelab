@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager-issuer
+  name: certificates
   namespace: cert-manager
 spec:
   project: default
   source:
     repoURL: "https://github.com/t-arik/homelab"
     targetRevision: main
-    path: argocd/cert-manager-issuer
+    path: argocd/certificates
   destination:
     namespace: cert-manager
     server: https://kubernetes.default.svc
