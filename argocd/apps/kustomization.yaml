@@ -3,9 +3,7 @@ kind: Kustomization
 namespace: argocd
 resources:
   - guestbook.yaml
-  - cert-manager.yaml
-  - cert-manager-issuer.yaml
+  - certificates.yaml
   - ingress-nginx.yaml
   - argocd.yaml
-  # - external-dns.yaml
   - monitoring.yaml
