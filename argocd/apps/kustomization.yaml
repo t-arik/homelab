@@ -8,3 +8,4 @@ resources:
   - argocd.yaml
   - monitoring.yaml
   - sealed-secrets.yaml
+  - ddns.yaml
