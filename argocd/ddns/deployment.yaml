@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ddns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ddns
+  template:
+    metadata:
+      labels:
+        app: ddns
+    spec:
+      containers:
+      - name: digitalocean-ddns
+        image: tarikx/digitalocean-ddns:0.0.1
+        env:
+        - name: DOMAIN
+          value: rikb.de
+        - name: DIGITALOCEAN_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: digitalocean
+              key: token
+
