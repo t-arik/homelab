@@ -13,6 +13,18 @@ spec:
       valuesObject:
         persistence:
           enabled: true
+        ingress:
+          enabled: true
+          ingressClassName: nginx
+          annotations:
+            cert-manager.io/cluster-issuer: letsencrypt-prod
+          path: /
+          hosts:
+            - monitoring.rikb.de
+          tls:
+            - hosts:
+              - monitoring.rikb.de
+              secretName: tls-secret
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc

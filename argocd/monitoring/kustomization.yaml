@@ -1,4 +1,3 @@
 resources:
   - grafana.yaml
-  - ingress.yaml
   - prometheus.yaml
