@@ -13,8 +13,5 @@ spec:
     namespace: ddns
     server: https://kubernetes.default.svc
   syncPolicy:
-    automated:
-      selfHeal: true
     syncOptions:
     - CreateNamespace=true
-
