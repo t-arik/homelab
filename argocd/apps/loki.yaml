@@ -1,0 +1,78 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: loki
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 6.6.5
+    helm:
+      valuesObject:
+        loki:
+          schemaConfig:
+            configs:
+              - from: 2024-04-01
+                store: tsdb
+                object_store: s3
+                schema: v13
+                index:
+                  prefix: loki_index_
+                  period: 24h
+          ingester:
+            chunk_encoding: snappy
+          tracing:
+            enabled: true
+          querier:
+            max_concurrent: 4
+
+        #gateway:
+        #  ingress:
+        #    enabled: true
+        #    hosts:
+        #      - host: FIXME
+        #        paths:
+        #          - path: /
+        #            pathType: Prefix
+
+        deploymentMode: SimpleScalable
+
+        backend:
+          replicas: 1
+        read:
+          replicas: 1
+        write:
+          replicas: 1
+
+        minio:
+          enabled: true
+
+        singleBinary:
+          replicas: 0
+
+        ingester:
+          replicas: 0
+        querier:
+          replicas: 0
+        queryFrontend:
+          replicas: 0
+        queryScheduler:
+          replicas: 0
+        distributor:
+          replicas: 0
+        compactor:
+          replicas: 0
+        indexGateway:
+          replicas: 0
+        bloomCompactor:
+          replicas: 0
+        bloomGateway:
+          replicas: 0
+  destination:
+    namespace: loki
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
