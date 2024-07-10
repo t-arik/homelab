@@ -20,7 +20,7 @@ spec:
             #     - targets:
             #       - target:9090
   destination:
-    namespace: monitoring
+    namespace: prometheus
     server: https://kubernetes.default.svc
   syncPolicy:
     syncOptions:
