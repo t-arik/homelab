@@ -6,7 +6,8 @@ resources:
   - cert-manager.yaml
   - ingress-nginx.yaml
   - argocd.yaml
-  - monitoring.yaml
+  - prometheus.yaml
+  - grafana.yaml
   - sealed-secrets.yaml
   - ddns.yaml
   - keycloak.yaml
