@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: digitalocean-ddns
-        image: tarikx/digitalocean-ddns:0.0.1
+        image: tarikx/digitalocean-ddns:0.0.2
         env:
         - name: DOMAIN
           value: rikb.de
