@@ -23,4 +23,3 @@ spec:
             secretKeyRef:
               name: digitalocean
               key: token
-
