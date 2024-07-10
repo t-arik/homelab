@@ -12,4 +12,3 @@ resources:
   - ddns.yaml
   - keycloak.yaml
   - vault.yaml
-  - loki.yaml
