@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sealed-secrets
+  name: flink
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://bitnami-labs.github.io/sealed-secrets
-    targetRevision: 2.16.0
-    chart: sealed-secrets
+    repoURL: "https://github.com/t-arik/homelab"
+    targetRevision: main
+    path: argocd/flink
   destination:
-    namespace: kube-system
+    namespace: flink
     server: https://kubernetes.default.svc
   syncPolicy:
     syncOptions:
