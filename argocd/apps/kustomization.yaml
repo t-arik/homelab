@@ -13,4 +13,3 @@ resources:
   - keycloak.yaml
   - vault.yaml
   - flink.yaml
-  - kubernetes-dashboard.yaml
