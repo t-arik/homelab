@@ -12,3 +12,4 @@ resources:
   - ddns.yaml
   - keycloak.yaml
   - vault.yaml
+  - flink.yaml
