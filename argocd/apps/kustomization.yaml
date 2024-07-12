@@ -11,5 +11,5 @@ resources:
   - sealed-secrets.yaml
   - ddns.yaml
   - keycloak.yaml
-  - vault.yaml
   - flink.yaml
+  - plex.yaml
