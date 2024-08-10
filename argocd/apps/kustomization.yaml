@@ -5,6 +5,7 @@ resources:
   - cert-manager.yaml
   - ingress-nginx.yaml
   - argocd.yaml
+  - argo.yaml
   - prometheus.yaml
   - sealed-secrets.yaml
   - ddns.yaml

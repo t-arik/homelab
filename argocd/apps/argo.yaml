@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo
+  namespace: argo
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/t-arik/homelab"
+    targetRevision: main
+    path: argocd/argo
+  destination:
+    namespace: argo
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
