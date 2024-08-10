@@ -1,3 +1,0 @@
-resources:
-- guestbook-ui-deployment.yaml
-- guestbook-ui-service.yaml
