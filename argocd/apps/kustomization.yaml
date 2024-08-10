@@ -6,6 +6,7 @@ resources:
   - ingress-nginx.yaml
   - argocd.yaml
   - argo.yaml
+  - argo-events.yaml
   - prometheus.yaml
   - sealed-secrets.yaml
   - ddns.yaml
